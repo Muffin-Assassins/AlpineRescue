@@ -7,12 +7,12 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
-public class TopographicSearchGridPanel extends GridPanel {
+public class TopographicGridPanel extends GridPanel {
 	private int cellsPerUnitDistance;
 	private int pixelsPerUnitDistance;
 	private Image background;
 	
-	public TopographicSearchGridPanel(int cellsPerUnitDistance, int pixelsPerUnitDistance, String imageURL) {
+	public TopographicGridPanel(int cellsPerUnitDistance, int pixelsPerUnitDistance, String imageURL) {
 		super();
 		this.background = new ImageIcon(this.getClass().getResource(imageURL)).getImage();
 		this.setPixelsPerUnitDistance(pixelsPerUnitDistance);
