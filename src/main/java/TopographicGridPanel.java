@@ -19,6 +19,7 @@ public class TopographicGridPanel extends GridPanel {
 		this.setCellsPerUnitDistance(cellsPerUnitDistance);
 		this.cropImageToGrid();
 		this.setPreferredSize(this.getGridPixelDimension());
+		this.setLocation(0, 0);
 	}
 	
 	private void cropImageToGrid() {
@@ -45,6 +46,6 @@ public class TopographicGridPanel extends GridPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		g.drawImage(this.background, 0, 0, this.getGridPixelWidth(), this.getGridPixelHeight(),  null);
-		super.paintComponent(g);
+		//super.paintComponent(g);
 	}
 }
