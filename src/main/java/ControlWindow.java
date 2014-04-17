@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 public class ControlWindow extends JFrame {
 	private final static int WINDOW_BORDER_THICKNESS = 39;
 	private final static int WINDOW_EDGE_THICKNESS = 17;
-	private TopographicSearchGrid topographicSearchGrid;
+	private TopographicSearchGridPanel topographicSearchGrid;
 	
 	public ControlWindow() throws HeadlessException {
 		super();
@@ -17,7 +17,7 @@ public class ControlWindow extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		
-		this.add(this.topographicSearchGrid = new TopographicSearchGrid(1, 20 ,"../resources/Pike_Peak_Topo.png"), BorderLayout.CENTER);
+		this.add(this.topographicSearchGrid = new TopographicSearchGridPanel(1, 20 ,"../resources/Pike_Peak_Topo.png"), BorderLayout.CENTER);
 		this.setSize(this.topographicSearchGrid.getGridPixelWidth() + this.WINDOW_EDGE_THICKNESS, this.topographicSearchGrid.getGridPixelHeight() + this.WINDOW_BORDER_THICKNESS);
 	}
 	
