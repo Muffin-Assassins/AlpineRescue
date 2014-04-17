@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-public class GridPanel extends JPanel {
+public abstract class GridPanel extends JPanel {
 	private Dimension dimension;
 	private int cellSize;
 	
@@ -65,6 +65,7 @@ public class GridPanel extends JPanel {
 	public int getGridPixelHeight() {
 		return this.cellSize * this.dimension.height;
 	}
+	
 	@Override
 	public void paintComponent(Graphics g) {
 		g.setColor(Color.GRAY);

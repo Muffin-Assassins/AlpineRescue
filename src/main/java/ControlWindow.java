@@ -13,6 +13,7 @@ public class ControlWindow extends JFrame {
 	
 	private TopographicGridPanel topographicGridPanel;
 	private SearchGridPanel searchGridPanel;
+	private JLayeredPane mapPane;
 	
 	public ControlWindow() throws HeadlessException {
 		super();
@@ -20,11 +21,17 @@ public class ControlWindow extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		
+		mapPane = new JLayeredPane();
 		this.topographicGridPanel = new TopographicGridPanel(1, 20 ,"../resources/Pike_Peak_Topo.png");
 		this.searchGridPanel = new SearchGridPanel();
+		this.searchGridPanel.setBounds(0, 0, this.topographicGridPanel.getGridPixelWidth(), this.topographicGridPanel.getGridPixelHeight());
+		mapPane.setPreferredSize(this.topographicGridPanel.getGridPixelDimension());
 		
-		this.add(this.topographicGridPanel = new TopographicGridPanel(1, 20 ,"../resources/Pike_Peak_Topo.png"), BorderLayout.CENTER);
-		this.add(this.searchGridPanel, BorderLayout.CENTER);
+		mapPane.add(this.searchGridPanel);
+		mapPane.add(this.topographicGridPanel);
+		
+		this.add(mapPane, BorderLayout.CENTER);
+		this.pack();
 		this.setSize(this.topographicGridPanel.getGridPixelWidth() + this.WINDOW_EDGE_THICKNESS, this.topographicGridPanel.getGridPixelHeight() + this.WINDOW_BORDER_THICKNESS);
 	}
 	

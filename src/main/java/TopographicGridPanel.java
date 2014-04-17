@@ -19,7 +19,9 @@ public class TopographicGridPanel extends GridPanel {
 		this.setCellsPerUnitDistance(cellsPerUnitDistance);
 		this.cropImageToGrid();
 		this.setPreferredSize(this.getGridPixelDimension());
-		this.setLocation(0, 0);
+		this.setOpaque(false);
+		this.setBounds(0,  0, this.getGridPixelDimension().width, this.getGridPixelDimension().height);
+		
 	}
 	
 	private void cropImageToGrid() {
