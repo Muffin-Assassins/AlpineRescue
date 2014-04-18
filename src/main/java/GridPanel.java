@@ -45,10 +45,10 @@ public abstract class GridPanel extends JPanel {
 	
 	public void setCellSize(int size) {
 		Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-		if(size > 0 && size * this.dimension.width < screenSize.width && size * this.dimension.height < screenSize.height)
+		//if(size > 0 && size * this.dimension.width < screenSize.width && size * this.dimension.height < screenSize.height)
 			this.cellSize = size;
-		else
-			throw new RuntimeException("Invalid Grid Cell Size: [Size: " + Integer.toString(size));
+		//else
+			//throw new RuntimeException("Invalid Grid Cell Size: [Size: " + Integer.toString(size));
 	}
 	
 	public int getCellSize() {
