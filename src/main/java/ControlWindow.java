@@ -35,7 +35,7 @@ public class ControlWindow extends JFrame {
 		this.setSize(this.topographicGridPanel.getGridPixelWidth() + this.WINDOW_EDGE_THICKNESS, this.topographicGridPanel.getGridPixelHeight() + this.WINDOW_BORDER_THICKNESS);
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { // turn this into a test instead of a main
 		ControlWindow gui = new ControlWindow();
 		gui.setVisible(true);
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
