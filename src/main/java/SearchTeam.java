@@ -75,7 +75,10 @@ public abstract class SearchTeam extends GridObject{
 		}
 	}
 	
-	public abstract void manualUpdate(Point location);
+	public void manualUpdate(Point location){
+		this.lastKnownPosition=location;
+		super.manualUpdate(this.lastKnownPosition);
+	}
 	
 	@Override
 	public void notifyUser() {
@@ -83,11 +86,19 @@ public abstract class SearchTeam extends GridObject{
 		directionDialog.setSelectedIndex(0);
 		JTextField speedDialog = new JTextField("0.0");
 		speedDialog.setEditable(true);
-		JPanel box = new JPanel(new GridLayout(2,2));
+		JTextField locationxDialog = new JTextField(Integer.toString(this.lastKnownPosition.x));
+		locationxDialog.setEditable(true);
+		JTextField locationyDialog = new JTextField(Integer.toString(this.lastKnownPosition.y));
+		locationyDialog.setEditable(true);
+		JPanel box = new JPanel(new GridLayout(4,2));
 		box.add(new JLabel("Direction"));
 		box.add(directionDialog);
 		box.add(new JLabel("Speed"));
 		box.add(speedDialog);
+		box.add(new JLabel("Update X Location"));
+		box.add(locationxDialog);
+		box.add(new JLabel("Update Y Location"));
+		box.add(locationyDialog);
 		final JComponent[] inputs = new JComponent[] {
 				box
 		};
@@ -97,6 +108,7 @@ public abstract class SearchTeam extends GridObject{
 			    options,
 			    options[1]);
 		double newSpeed=Double.parseDouble(speedDialog.getText());
+		this.manualUpdate(new Point(Integer.parseInt(locationxDialog.getText()),Integer.parseInt(locationyDialog.getText())));
 		if(newSpeed >100){
 			newSpeed = 100;
 			JOptionPane.showMessageDialog(null,
@@ -112,6 +124,6 @@ public abstract class SearchTeam extends GridObject{
 			    JOptionPane.PLAIN_MESSAGE);
 		}
 		this.setVelocity(new Velocity(newSpeed,(Direction)directionDialog.getSelectedItem()));
-		System.out.println(velocity);
+		System.out.println(this.lastKnownPosition);
 	}
 }

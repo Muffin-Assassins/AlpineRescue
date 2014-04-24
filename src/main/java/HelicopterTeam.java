@@ -13,7 +13,4 @@ public class HelicopterTeam extends SearchTeam {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void manualUpdate(Point location){
-		super.lastKnownPosition=location;
-	}
 }

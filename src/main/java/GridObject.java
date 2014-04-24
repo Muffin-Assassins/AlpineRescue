@@ -37,6 +37,9 @@ public class GridObject implements Grid.Clickable{
 		return this.bufferedImage.getScaledInstance(this.width, this.height, Image.SCALE_FAST);
 	}
 
+	public void manualUpdate(Point lastKnownPosition){
+		this.center=lastKnownPosition;
+	}
 	@Override
 	public void notifyUser() {
 		System.out.println("You clicked on an object");

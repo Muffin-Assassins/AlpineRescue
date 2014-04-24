@@ -203,8 +203,10 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 				break;
 			}
 		}
-		else if(SwingUtilities.isLeftMouseButton(arg0))
+		else if(SwingUtilities.isLeftMouseButton(arg0)){
 			this.getClicked(arg0.getPoint()).notifyUser();
+			this.repaint();
+		}
 	}
 
 	@Override

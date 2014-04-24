@@ -5,6 +5,7 @@ import java.awt.HeadlessException;
 import java.awt.Point;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 @SuppressWarnings("serial")
 public class ControlWindow extends JFrame {
@@ -29,5 +30,9 @@ public class ControlWindow extends JFrame {
 		
 		this.add(grid, BorderLayout.CENTER);
 		this.setSize(this.grid.getWidth() + ControlWindow.WINDOW_EDGE_THICKNESS, this.grid.getHeight() + ControlWindow.WINDOW_BORDER_THICKNESS);
+		JOptionPane.showMessageDialog(null,
+			    "To add a new Search Team right click on their starting Location.",
+			    "Begin Similulation",
+			    JOptionPane.PLAIN_MESSAGE);
 	}
 }

@@ -12,8 +12,4 @@ public class HikerTeam extends SearchTeam {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void manualUpdate(Point location){
-		super.lastKnownPosition=location;
-	}
-
 }

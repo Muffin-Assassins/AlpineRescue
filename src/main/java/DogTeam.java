@@ -12,10 +12,6 @@ public class DogTeam extends SearchTeam {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void manualUpdate(Point location){
-		super.lastKnownPosition=location;
-	}
-	
 	@Override
 	public void hypothesizeLocation(){
 		//DO NOTHING
