@@ -29,7 +29,8 @@ public class alpineTests {
 		hike0.setVelocity(new Velocity (20, Direction.SOUTH));
 		heli0.setVelocity(new Velocity(35, Direction.WEST)); 
 		dog0.setVelocity(new Velocity(15, Direction.SOUTHEAST));//Even though these are currently only used in one test,
-		//keeping them in @Before in case more hypotheses tests come up that reqire it
+		//keeping them in @Before in case more hypotheses tests come up that require it
+		
 		
 	}
 	
@@ -57,6 +58,17 @@ public class alpineTests {
 	}
 	
 	@Test
+	public void diagonalHypothesis() {
+		heli0.setVelocity(new Velocity(10, Direction.SOUTHWEST)); 
+		for (int i = 0; i < 7; i++) {
+			heli0.hypothesizeLocation();
+		}
+		Point expected = new Point(451, 349);
+		Point actual = heli0.getHypotheses().get(heli0.getHypotheses().size() -1);
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void offTheGrid() { //hypothesis situation that would take them off the grid,
 		//but restrictions should handle it and keep SearchTeams on the map and stop hypotheses 
 		//until next manual update of velocity
@@ -76,8 +88,6 @@ public class alpineTests {
 		actual = heli0.getHypotheses().get(hike0.getHypotheses().size() -1);
 		expected = new Point(325, 300);
 		Assert.assertEquals(expected, actual);
-		
-		
 	}
 
 }
