@@ -19,7 +19,8 @@ public abstract class SearchTeam {
 		this.radius = radius;
 		this.startLocation = startLocation;
 		this.lastKnownPosition = startLocation;
-		this.hypothesizedLocations = new ArrayList<Point>();
+		this.hypothesizedLocations = new ArrayList<Point>(); //drawing from hypothesizedLocations
+		//clear hypoLoc during every manual update because past hypotheses no longer matter
 		velocity= new Velocity(0.0, Direction.NORTH);
 		this.hypothesizedLocations.add(lastKnownPosition);
 	}
