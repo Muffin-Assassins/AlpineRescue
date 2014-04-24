@@ -12,17 +12,6 @@ public class HikerTeam extends SearchTeam {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public Point getGridLocation() {
-		// TODO Auto-generated method stub
-		return super.lastKnownPosition;
-	}
-
-	@Override
-	public void draw(Graphics graphics) {
-		// TODO Auto-generated method stub
-		
-	}
 	public void manualUpdate(Point location){
 		super.lastKnownPosition=location;
 	}

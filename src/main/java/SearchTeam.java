@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 
-public abstract class SearchTeam implements GridPanel.Drawable {
+public abstract class SearchTeam {
 	private final Color color;
 	private final int radius;
 	private final Point startLocation;
@@ -23,9 +23,11 @@ public abstract class SearchTeam implements GridPanel.Drawable {
 		velocity= new Velocity(0.0, Direction.NORTH);
 		this.hypothesizedLocations.add(lastKnownPosition);
 	}
+	
 	public void setVelocity(Velocity v){
 		velocity=v;
 	}
+	
 	public void hypothesizeLocation(){
 		switch(velocity.getDirection()){
 		case NORTH:	
