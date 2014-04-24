@@ -9,10 +9,12 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 @SuppressWarnings("serial")
-public class Grid extends JPanel implements MouseListener {
+public class Grid extends JPanel implements MouseListener, Runnable {
 	private ArrayList<GridCell> cells;
 	private ArrayList<GridObject> objects;
 	private Dimension dimension;
@@ -120,9 +122,6 @@ public class Grid extends JPanel implements MouseListener {
 	public Dimension getGridSize() {
 		return this.dimension;
 	}
-
-
-
 	// Graphics Customization and Specifications
 
 	public void setBackgroundImage(String imageURL) {
@@ -139,6 +138,7 @@ public class Grid extends JPanel implements MouseListener {
 	
 	public void addGridObject(GridObject go) {
 		this.objects.add(go);
+		go.notifyUser();
 		this.repaint();
 	}
 	
@@ -186,6 +186,31 @@ public class Grid extends JPanel implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
-		this.getClicked(arg0.getPoint()).notifyUser();
+		if(SwingUtilities.isRightMouseButton(arg0)){
+			Object[] objects = {"Dog Team", "Hiker Team", "Helicopter Team"};
+			String s = (String)JOptionPane.showInputDialog(this, "Please choose seach team type:", "New Search Team", JOptionPane.PLAIN_MESSAGE, null, objects, "Dog Team");
+			switch (s) {
+			case "Dog Team":
+				this.addGridObject(new DogTeam(arg0.getPoint()));
+				break;
+			case "Hiker Team":
+				this.addGridObject(new HikerTeam(arg0.getPoint()));
+				break;
+			case "Helicopter Team":
+				this.addGridObject(new HelicopterTeam(arg0.getPoint()));
+				break;
+			default:
+				break;
+			}
+		}
+		else if(SwingUtilities.isLeftMouseButton(arg0))
+			this.getClicked(arg0.getPoint()).notifyUser();
 	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

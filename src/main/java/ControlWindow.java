@@ -2,6 +2,7 @@ package main.java;
 
 import java.awt.BorderLayout;
 import java.awt.HeadlessException;
+import java.awt.Point;
 
 import javax.swing.JFrame;
 
@@ -25,10 +26,12 @@ public class ControlWindow extends JFrame {
 		this.setLayout(new BorderLayout());
 		
 		this.grid = new Grid(20, RESOURCE_PATH + "Pike_Peak_Topo.png");
-		this.grid.addGridObject(new GridObject(100, 100, 40, 40, RESOURCE_PATH + "DogIcon.png"));
 		
 		this.add(grid, BorderLayout.CENTER);
 		this.setSize(this.grid.getWidth() + ControlWindow.WINDOW_EDGE_THICKNESS, this.grid.getHeight() + ControlWindow.WINDOW_BORDER_THICKNESS);
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 27241aecec65423465e2ca94f4338146cacb85e7
 }
