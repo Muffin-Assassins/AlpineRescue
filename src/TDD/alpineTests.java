@@ -30,8 +30,9 @@ public class alpineTests {
 		heli0.setVelocity(new Velocity(35, Direction.WEST)); 
 		dog0.setVelocity(new Velocity(15, Direction.SOUTHEAST));//Even though these are currently only used in one test,
 		//keeping them in @Before in case more hypotheses tests come up that require it
-		
-		
+		hike0.manualUpdate(new Point(0, 0));
+		heli0.manualUpdate(new Point(500, 300));
+		dog0.manualUpdate(new Point(100, 20));
 	}
 	
 	@Test
@@ -65,7 +66,9 @@ public class alpineTests {
 		}
 		Point expected = new Point(451, 349);
 		Point actual = heli0.getHypotheses().get(heli0.getHypotheses().size() -1);
+		System.out.println(actual);
 		Assert.assertEquals(expected, actual);
+		
 	}
 	
 	@Test
