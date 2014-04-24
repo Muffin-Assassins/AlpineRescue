@@ -27,17 +27,19 @@ public class alpineTests {
 	@Before
 	public void resetVelocity() {
 		hike0.setVelocity(new Velocity (20, Direction.SOUTH));
-		heli0.setVelocity(new Velocity(35, Direction.WEST));
+		heli0.setVelocity(new Velocity(35, Direction.WEST)); 
+		dog0.setVelocity(new Velocity(15, Direction.SOUTHEAST));//Even though these are currently only used in one test,
+		//keeping them in @Before in case more hypotheses tests come up that reqire it
 		
 	}
 	
 	@Test
 	public void seeGUI() {
-		testGUI = new ControlWindow(); //how do we make this stay open to inspect it?
+		testGUI = new ControlWindow(); //a lot of GUI tests consist of visual confirmation; this covers most of that
 	}
 	
 	@Test
-	public void hypotheses() {
+	public void hypotheses() { //normal hypothesis situation
 		for(int i=0; i < 5; i++){
 			hike0.hypothesizeLocation();
 			dog0.hypothesizeLocation();
@@ -54,5 +56,28 @@ public class alpineTests {
 		Assert.assertEquals(expected, actual);
 	}
 	
-	//create control panel gui
+	@Test
+	public void offTheGrid() { //hypothesis situation that would take them off the grid,
+		//but restrictions should handle it and keep SearchTeams on the map and stop hypotheses 
+		//until next manual update of velocity
+		hike0.setVelocity(new Velocity (20, Direction.NORTH));
+		
+		for(int i=0; i < 5; i++){
+			hike0.hypothesizeLocation();
+			dog0.hypothesizeLocation();
+			heli0.hypothesizeLocation();
+		}
+		Point expected = new Point(100,20);
+		Point actual = dog0.getHypotheses().get(dog0.getHypotheses().size() -1);
+		Assert.assertEquals(expected, actual);
+		actual = hike0.getHypotheses().get(hike0.getHypotheses().size() -1);
+		expected = new Point(0,0);
+		Assert.assertEquals(expected, actual);
+		actual = heli0.getHypotheses().get(hike0.getHypotheses().size() -1);
+		expected = new Point(325, 300);
+		Assert.assertEquals(expected, actual);
+		
+		
+	}
+
 }
