@@ -97,10 +97,20 @@ public abstract class SearchTeam extends GridObject{
 			    options,
 			    options[1]);
 		double newSpeed=Double.parseDouble(speedDialog.getText());
-		if(newSpeed >100)
+		if(newSpeed >100){
 			newSpeed = 100;
-		else if (newSpeed <0)
+			JOptionPane.showMessageDialog(null,
+			    "The max speed is 100.0. Your value has been set to 100.0.",
+			    "Speed too large.",
+			    JOptionPane.PLAIN_MESSAGE);
+		}
+		else if(newSpeed <0){
 			newSpeed =0;
+			JOptionPane.showMessageDialog(null,
+			    "The minimum speed is 0.0. Your value has been set to 0.0.",
+			    "Speed too large.",
+			    JOptionPane.PLAIN_MESSAGE);
+		}
 		this.setVelocity(new Velocity(newSpeed,(Direction)directionDialog.getSelectedItem()));
 		System.out.println(velocity);
 	}
