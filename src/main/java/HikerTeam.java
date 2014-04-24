@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class HikerTeam extends SearchTeam {
 
-	public HikerTeam(Color color, int radius, Point startLocation) {
-		super(color, radius, startLocation);
+	public HikerTeam(Point startLocation) {
+		super(5, startLocation, "../resources/HikerIcon.png");
 		// TODO Auto-generated constructor stub
 	}
 
