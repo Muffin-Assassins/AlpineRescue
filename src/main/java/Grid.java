@@ -160,6 +160,7 @@ public class Grid extends JPanel implements MouseListener {
 		
 		for(GridObject go : this.getGridObjects()) {
 			g.drawImage(go.getScaledImage(), go.getBounds().x, go.getBounds().y, null);
+			g.drawRect(go.getBounds().x,go.getBounds().y, go.getBounds().width, go.getBounds().height);   //Draws a border around the object.
 		}
 	}
 

@@ -13,6 +13,10 @@ public class ControlWindow extends JFrame {
 	
 	private Grid grid;
 	
+	public static void main(String[] args){
+		ControlWindow cw =new ControlWindow();
+	}
+	
 	public ControlWindow() throws HeadlessException {
 		super();
 		this.setTitle("Alpine Rescuess");
@@ -21,7 +25,7 @@ public class ControlWindow extends JFrame {
 		this.setLayout(new BorderLayout());
 		
 		this.grid = new Grid(20, RESOURCE_PATH + "Pike_Peak_Topo.png");
-		this.grid.addGridObject(new GridObject(100, 100, 50, 50, RESOURCE_PATH + "DogIcon.png"));
+		this.grid.addGridObject(new GridObject(100, 100, 40, 40, RESOURCE_PATH + "DogIcon.png"));
 		
 		this.add(grid, BorderLayout.CENTER);
 		this.setSize(this.grid.getWidth() + ControlWindow.WINDOW_EDGE_THICKNESS, this.grid.getHeight() + ControlWindow.WINDOW_BORDER_THICKNESS);
