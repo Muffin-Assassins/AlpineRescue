@@ -32,10 +32,10 @@ public class alpineTests {
 			dog0.hypothesizeLocation();
 			heli0.hypothesizeLocation();
 		}
-		ArrayList<Point> actual = dog0.getHypotheses();
-		//ArrayList<Point> expected = [0];
+		int actual = dog0.getHypotheses().size();
+		int expected = 1;
 		System.out.println("hike: " + hike0.getHypotheses() + "dog: " + dog0.getHypotheses());
-		Assert.assertEquals(null, actual);
+		Assert.assertEquals(expected, actual);
 	}
 	
 	//create control panel gui
