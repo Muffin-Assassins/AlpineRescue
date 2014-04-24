@@ -35,6 +35,8 @@ public abstract class SearchTeam {
 	public void hypothesizeLocation(){
 		switch(velocity.getDirection()){
 		case NORTH:	
+			System.out.println(this.velocity);
+	
 			this.hypothesizedLocations.add(new Point(hypothesizedLocations.get(hypothesizedLocations.size()-1).x, hypothesizedLocations.get(hypothesizedLocations.size()-1).y - ((int)this.velocity.getSpeed())));
 			break;
 		case SOUTH: 

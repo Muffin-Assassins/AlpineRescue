@@ -27,4 +27,7 @@ public class ControlWindow extends JFrame {
 		this.setSize(this.grid.getWidth() + ControlWindow.WINDOW_EDGE_THICKNESS, this.grid.getHeight() + ControlWindow.WINDOW_BORDER_THICKNESS);
 	}
 
+	public static void main(String[] arg0) {
+		ControlWindow gui = new ControlWindow();
+	}
 }
