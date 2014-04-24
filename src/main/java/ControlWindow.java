@@ -35,4 +35,5 @@ public class ControlWindow extends JFrame {
 			    "Begin Similulation",
 			    JOptionPane.PLAIN_MESSAGE);
 	}
+
 }
