@@ -4,8 +4,7 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 
-public abstract class SearchTeam {
-	private final Color color;
+public abstract class SearchTeam extends GridObject{
 	private final int radius;
 	private final Point startLocation;
 	
@@ -13,9 +12,8 @@ public abstract class SearchTeam {
 	protected Point lastKnownPosition;
 	protected ArrayList<Point> hypothesizedLocations;
 	
-	public SearchTeam(Color color, int radius, Point startLocation) {
-		super();
-		this.color = color;
+	public SearchTeam(int radius, Point startLocation, String imageUrl) {
+		super(startLocation.x,startLocation.y, 40,40, imageUrl);
 		this.radius = radius;
 		this.startLocation = startLocation;
 		this.lastKnownPosition = startLocation;

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class HelicopterTeam extends SearchTeam {
 	
 
-	public HelicopterTeam(Color color, int radius, Point startLocation) {
-		super(color, radius, startLocation);
+	public HelicopterTeam(Point startLocation) {
+		super(10, startLocation,"../resources/HelicopterIcon.png");
 		// TODO Auto-generated constructor stub
 	}
 

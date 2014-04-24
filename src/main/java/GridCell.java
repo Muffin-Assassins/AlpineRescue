@@ -9,8 +9,12 @@ public class GridCell implements Grid.Clickable {
 	private boolean[] borders;
 	
 	public GridCell(int row, int column) {
-		this.color = new Color(0, 0, 0, 0);
+		this.color = new Color(0, 0, 0, 127);		//Color(red,blue,green,opacity)
 		this.borders = new boolean[4];
+		this.borders[0]=true;					//Create borders on cells
+		this.borders[1]=true;					//Create borders on cells
+		this.borders[2]=true;					//Create borders on cells
+		this.borders[3]=true;					//Create borders on cells
 		if(row > 0) this.row = row;
 		if(column > 0) this.column = column;
 	}

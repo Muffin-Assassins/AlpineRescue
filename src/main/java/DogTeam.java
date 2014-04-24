@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class DogTeam extends SearchTeam {
 	
-	public DogTeam(Color color, int radius, Point startLocation) {
-		super(color, radius, startLocation);
+	public DogTeam(Point startLocation) {
+		super(7,startLocation,"../resources/DogIcon.png");
 		// TODO Auto-generated constructor stub
 	}
 	

@@ -20,9 +20,9 @@ import org.junit.Test;
 
 public class alpineTests {
 	private ControlWindow testGUI;
-	private SearchTeam hike0 = new HikerTeam(Color.blue, 1, new Point(0, 0)); //should we create constants for the radius and put it in the constructor
-	private SearchTeam dog0 = new DogTeam(Color.BLACK, 3, new Point(100, 20)); // but not as a parameter?;
-	private SearchTeam heli0 = new HelicopterTeam(Color.gray, 5,new Point(500, 300));
+	private SearchTeam hike0 = new HikerTeam(new Point(0, 0)); //should we create constants for the radius and put it in the constructor
+	private SearchTeam dog0 = new DogTeam(new Point(100, 20)); // but not as a parameter?;
+	private SearchTeam heli0 = new HelicopterTeam(new Point(500, 300));
 	
 	@Before
 	public void resetVelocity() {
