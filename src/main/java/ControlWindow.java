@@ -1,19 +1,17 @@
 package main.java;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.HeadlessException;
 
 import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
 
+@SuppressWarnings("serial")
 public class ControlWindow extends JFrame {
 	private final static int WINDOW_BORDER_THICKNESS = 39;
 	private final static int WINDOW_EDGE_THICKNESS = 17;
+	private final static String RESOURCE_PATH = "../resources/";
 	
-	private TopographicGridPanel topographicGridPanel;
-	private SearchGridPanel searchGridPanel;
-	private JLayeredPane mapPane;
+	private Grid grid;
 	
 	public ControlWindow() throws HeadlessException {
 		super();
@@ -22,17 +20,11 @@ public class ControlWindow extends JFrame {
 		this.setVisible(true);
 		this.setLayout(new BorderLayout());
 		
-		mapPane = new JLayeredPane();
-		this.topographicGridPanel = new TopographicGridPanel(1, 20 ,"../resources/Pike_Peak_Topo.png");
-		this.searchGridPanel = new SearchGridPanel();
-		this.searchGridPanel.setBounds(0, 0, this.topographicGridPanel.getGridPixelWidth(), this.topographicGridPanel.getGridPixelHeight());
-		mapPane.setPreferredSize(this.topographicGridPanel.getGridPixelDimension());
+		this.grid = new Grid(20, RESOURCE_PATH + "Pike_Peak_Topo.png");
+		this.grid.addGridObject(new GridObject(100, 100, 50, 50, RESOURCE_PATH + "DogIcon.png"));
 		
-		mapPane.add(this.searchGridPanel);
-		mapPane.add(this.topographicGridPanel);
-		
-		this.add(mapPane, BorderLayout.CENTER);
-		this.pack();
-		this.setSize(this.topographicGridPanel.getGridPixelWidth() + this.WINDOW_EDGE_THICKNESS, this.topographicGridPanel.getGridPixelHeight() + this.WINDOW_BORDER_THICKNESS);
+		this.add(grid, BorderLayout.CENTER);
+		this.setSize(this.grid.getWidth() + ControlWindow.WINDOW_EDGE_THICKNESS, this.grid.getHeight() + ControlWindow.WINDOW_BORDER_THICKNESS);
 	}
+
 }
