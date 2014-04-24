@@ -19,6 +19,7 @@ public class ControlWindow extends JFrame {
 		super();
 		this.setTitle("Alpine Rescuess");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
 		this.setLayout(new BorderLayout());
 		
 		mapPane = new JLayeredPane();
@@ -33,11 +34,5 @@ public class ControlWindow extends JFrame {
 		this.add(mapPane, BorderLayout.CENTER);
 		this.pack();
 		this.setSize(this.topographicGridPanel.getGridPixelWidth() + this.WINDOW_EDGE_THICKNESS, this.topographicGridPanel.getGridPixelHeight() + this.WINDOW_BORDER_THICKNESS);
-	}
-	
-	public static void main(String[] args) { // turn this into a test instead of a main
-		ControlWindow gui = new ControlWindow();
-		gui.setVisible(true);
-		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

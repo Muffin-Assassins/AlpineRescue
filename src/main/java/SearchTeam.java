@@ -26,31 +26,34 @@ public abstract class SearchTeam implements GridPanel.Drawable {
 	public void setVelocity(Velocity v){
 		velocity=v;
 	}
+	public ArrayList<Point> getHypotheses() {
+		return hypothesizedLocations;
+	}
 	public void hypothesizeLocation(){
 		switch(velocity.getDirection()){
 		case NORTH:	
-			this.hypothesizedLocations.add(new Point(hypothesizedLocations.get(hypothesizedLocations.size()).x, hypothesizedLocations.get(hypothesizedLocations.size()).y - ((int)this.velocity.getSpeed())));
+			this.hypothesizedLocations.add(new Point(hypothesizedLocations.get(hypothesizedLocations.size()-1).x, hypothesizedLocations.get(hypothesizedLocations.size()-1).y - ((int)this.velocity.getSpeed())));
 			break;
 		case SOUTH: 
-			this.hypothesizedLocations.add(new Point(hypothesizedLocations.get(hypothesizedLocations.size()).x, hypothesizedLocations.get(hypothesizedLocations.size()).y + ((int)this.velocity.getSpeed())));
+			this.hypothesizedLocations.add(new Point(hypothesizedLocations.get(hypothesizedLocations.size()-1).x, hypothesizedLocations.get(hypothesizedLocations.size()-1).y + ((int)this.velocity.getSpeed())));
 			break;
 		case EAST: 
-			this.hypothesizedLocations.add(new Point(hypothesizedLocations.get(hypothesizedLocations.size()).x + ((int)this.velocity.getSpeed()), hypothesizedLocations.get(hypothesizedLocations.size()).y));
+			this.hypothesizedLocations.add(new Point(hypothesizedLocations.get(hypothesizedLocations.size()-1).x + ((int)this.velocity.getSpeed()), hypothesizedLocations.get(hypothesizedLocations.size()-1).y));
 			break;
 		case WEST: 
-			this.hypothesizedLocations.add(new Point(hypothesizedLocations.get(hypothesizedLocations.size()).x - ((int)this.velocity.getSpeed()), hypothesizedLocations.get(hypothesizedLocations.size()).y));
+			this.hypothesizedLocations.add(new Point(hypothesizedLocations.get(hypothesizedLocations.size()-1).x - ((int)this.velocity.getSpeed()), hypothesizedLocations.get(hypothesizedLocations.size() -1).y));
 			break;
 		case NORTHEAST:
-			this.hypothesizedLocations.add(new Point((int)((hypothesizedLocations.get(hypothesizedLocations.size()).x + ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)), ((int)((hypothesizedLocations.get(hypothesizedLocations.size()).y - ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)))));
+			this.hypothesizedLocations.add(new Point((int)((hypothesizedLocations.get(hypothesizedLocations.size()-1).x + ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)), ((int)((hypothesizedLocations.get(hypothesizedLocations.size()-1).y - ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)))));
 			break;
 		case NORTHWEST: 
-			this.hypothesizedLocations.add(new Point((int)((hypothesizedLocations.get(hypothesizedLocations.size()).x - ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)), ((int)((hypothesizedLocations.get(hypothesizedLocations.size()).y - ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)))));
+			this.hypothesizedLocations.add(new Point((int)((hypothesizedLocations.get(hypothesizedLocations.size()-1).x - ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)), ((int)((hypothesizedLocations.get(hypothesizedLocations.size()-1).y - ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)))));
 			break;
 		case SOUTHEAST: 
-			this.hypothesizedLocations.add(new Point((int)((hypothesizedLocations.get(hypothesizedLocations.size()).x + ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)), ((int)((hypothesizedLocations.get(hypothesizedLocations.size()).y + ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)))));
+			this.hypothesizedLocations.add(new Point((int)((hypothesizedLocations.get(hypothesizedLocations.size()-1).x + ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)), ((int)((hypothesizedLocations.get(hypothesizedLocations.size()-1).y + ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)))));
 			break;
 		case SOUTHWEST:
-			this.hypothesizedLocations.add(new Point((int)((hypothesizedLocations.get(hypothesizedLocations.size()).x - ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)), ((int)((hypothesizedLocations.get(hypothesizedLocations.size()).y + ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)))));
+			this.hypothesizedLocations.add(new Point((int)((hypothesizedLocations.get(hypothesizedLocations.size()-1).x - ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)), ((int)((hypothesizedLocations.get(hypothesizedLocations.size()-1).y + ((int)this.velocity.getSpeed() ))/ Math.sqrt(2)))));
 			break;
 		default:
 				break;

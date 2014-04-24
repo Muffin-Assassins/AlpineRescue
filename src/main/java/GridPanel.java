@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-public abstract class GridPanel extends JPanel {
+public abstract class GridPanel extends JPanel { //why is GridPanel abstract??!
 	private Dimension dimension;
 	private int cellSize;
 	
