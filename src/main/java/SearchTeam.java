@@ -17,7 +17,8 @@ public abstract class SearchTeam extends GridObject{
 		this.radius = radius;
 		this.startLocation = startLocation;
 		this.lastKnownPosition = startLocation;
-		this.hypothesizedLocations = new ArrayList<Point>();
+		this.hypothesizedLocations = new ArrayList<Point>(); //drawing from hypothesizedLocations
+		//clear hypoLoc during every manual update because past hypotheses no longer matter
 		velocity= new Velocity(0.0, Direction.NORTH);
 		this.hypothesizedLocations.add(lastKnownPosition);
 	}
@@ -33,6 +34,8 @@ public abstract class SearchTeam extends GridObject{
 	public void hypothesizeLocation(){
 		switch(velocity.getDirection()){
 		case NORTH:	
+			System.out.println(this.velocity);
+	
 			this.hypothesizedLocations.add(new Point(hypothesizedLocations.get(hypothesizedLocations.size()-1).x, hypothesizedLocations.get(hypothesizedLocations.size()-1).y - ((int)this.velocity.getSpeed())));
 			break;
 		case SOUTH: 
