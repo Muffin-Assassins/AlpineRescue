@@ -1,8 +1,19 @@
 package main.java;
 
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.Point;
 import java.util.ArrayList;
+
+import javax.swing.ComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.text.NumberFormatter;
 
 public abstract class SearchTeam extends GridObject{
 	private final int radius;
@@ -63,5 +74,34 @@ public abstract class SearchTeam extends GridObject{
 				break;
 		}
 	}
+	
 	public abstract void manualUpdate(Point location);
+	
+	@Override
+	public void notifyUser() {
+		JComboBox directionDialog = new JComboBox(Direction.values());
+		directionDialog.setSelectedIndex(0);
+		JTextField speedDialog = new JTextField("0.0");
+		speedDialog.setEditable(true);
+		JPanel box = new JPanel(new GridLayout(2,2));
+		box.add(new JLabel("Direction"));
+		box.add(directionDialog);
+		box.add(new JLabel("Speed"));
+		box.add(speedDialog);
+		final JComponent[] inputs = new JComponent[] {
+				box
+		};
+		Object[] options = {"Submit",
+        "Cancel"};
+		int choice=JOptionPane.showOptionDialog(null, inputs, "New Velocity", JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE,null,
+			    options,
+			    options[1]);
+		double newSpeed=Double.parseDouble(speedDialog.getText());
+		if(newSpeed >100)
+			newSpeed = 100;
+		else if (newSpeed <0)
+			newSpeed =0;
+		this.setVelocity(new Velocity(newSpeed,(Direction)directionDialog.getSelectedItem()));
+		System.out.println(velocity);
+	}
 }
