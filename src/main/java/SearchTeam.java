@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public abstract class SearchTeam extends GridObject{
 	private final int radius;
 	private final Point startLocation;
@@ -63,5 +65,11 @@ public abstract class SearchTeam extends GridObject{
 				break;
 		}
 	}
+	
 	public abstract void manualUpdate(Point location);
+	
+	@Override
+	public void notifyUser() {
+		JOptionPane.showMessageDialog(null, "Hello world");
+	}
 }
