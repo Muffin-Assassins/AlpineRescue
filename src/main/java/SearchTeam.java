@@ -82,7 +82,7 @@ public abstract class SearchTeam extends GridObject{
 	public void notifyUser() {
 		JComboBox directionDialog = new JComboBox(Direction.values());
 		directionDialog.setSelectedIndex(0);
-		JTextField speedDialog = new JTextField("0.0");
+		JTextField speedDialog = new JTextField(Double.toString(velocity.getSpeed()));
 		speedDialog.setEditable(true);
 		JTextField locationxDialog = new JTextField(Integer.toString(this.lastKnownPosition.x));
 		locationxDialog.setEditable(true);
