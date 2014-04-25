@@ -1,11 +1,14 @@
 package main.java;
 
+import java.awt.BasicStroke;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -106,7 +109,7 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 		return this.cells;
 	}
 
-	private ArrayList<GridObject> getGridObjects() {
+	public ArrayList<GridObject> getGridObjects() {
 		return this.objects;
 	}
 
@@ -148,7 +151,6 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 	public void paintComponent(Graphics g) {
 		g.drawImage(this.background, 0, 0, this.dimension.width * this.cellPixelSize, this.dimension.height * this.cellPixelSize,  null);
 
-
 		for(GridCell gpc : this.getGridCells()) {
 			g.setColor(gpc.getColor());
 			g.fillRect((gpc.getColumn() - 1) * this.cellPixelSize, (gpc.getRow() - 1) * this.cellPixelSize, this.cellPixelSize, this.cellPixelSize);
@@ -161,6 +163,14 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 		for(GridObject go : this.getGridObjects()) {
 			g.drawImage(go.getScaledImage(), go.getBounds().x, go.getBounds().y, null);
 			g.drawRect(go.getBounds().x,go.getBounds().y, go.getBounds().width, go.getBounds().height);   //Draws a border around the object.
+			if(go instanceof SearchTeam) {
+				ArrayList<Line2D> path = ((SearchTeam) go).getPath();
+				Graphics2D g2 = (Graphics2D) g;
+				g2.setStroke(new BasicStroke(10));
+				g2.setColor(((SearchTeam) go).getColor());
+				for(Line2D line : path)
+					g2.draw(line);
+			}
 		}
 	}
 
@@ -187,12 +197,12 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		if(SwingUtilities.isRightMouseButton(arg0)){
-			if(this.getClicked(arg0.getPoint()) instanceof GridObject) {
+			if(this.getClicked(arg0.getPoint()) instanceof SearchTeam) {
 				int reply = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this item?", "Confirmation Dialog", JOptionPane.YES_NO_OPTION);
-		        if (reply == JOptionPane.YES_OPTION) {
-		        	this.objects.remove(this.getClicked(arg0.getPoint()));
-		        	this.repaint();
-		        }
+				if (reply == JOptionPane.YES_OPTION) {
+					this.getGridObjects().remove(this.getClicked(arg0.getPoint()));
+					this.repaint();
+				}
 			} else if(this.getClicked(arg0.getPoint()) instanceof GridCell) {
 				Object[] objects = {"Dog Team", "Hiker Team", "Helicopter Team"};
 				String s = (String)JOptionPane.showInputDialog(this, "Please choose seach team type:", "New Search Team", JOptionPane.PLAIN_MESSAGE, null, objects, "Dog Team");
@@ -211,7 +221,7 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 				}
 			}
 		}
-		else if(SwingUtilities.isLeftMouseButton(arg0)){
+		else if(SwingUtilities.isLeftMouseButton(arg0)) {
 			this.getClicked(arg0.getPoint()).notifyUser();
 			this.repaint();
 		}

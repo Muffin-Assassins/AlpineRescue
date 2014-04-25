@@ -48,12 +48,12 @@ public class alpineTests {
 			heli0.hypothesizeLocation();
 		}
 		Point expected = new Point(100,20);
-		Point actual = dog0.getHypotheses().get(dog0.getHypotheses().size() -1);
+		Point actual = new Point((int)dog0.getHypothesizedPath().getP2().getX(), (int)dog0.getHypothesizedPath().getP2().getY());
 		Assert.assertEquals(expected, actual);
-		actual = hike0.getHypotheses().get(hike0.getHypotheses().size() -1);
+		actual = new Point((int)hike0.getHypothesizedPath().getP2().getX(), (int)hike0.getHypothesizedPath().getP2().getY());
 		expected = new Point(0,100);
 		Assert.assertEquals(expected, actual);
-		actual = heli0.getHypotheses().get(hike0.getHypotheses().size() -1);
+		actual = new Point((int)heli0.getHypothesizedPath().getP2().getX(), (int)heli0.getHypothesizedPath().getP2().getY());
 		expected = new Point(325, 300);
 		Assert.assertEquals(expected, actual);
 	}
@@ -65,7 +65,7 @@ public class alpineTests {
 			heli0.hypothesizeLocation();
 		}
 		Point expected = new Point(451, 349);
-		Point actual = heli0.getHypotheses().get(heli0.getHypotheses().size() -1);
+		Point actual = new Point((int)heli0.getHypothesizedPath().getP2().getX(), (int)heli0.getHypothesizedPath().getP2().getY());
 		System.out.println(actual);
 		Assert.assertEquals(expected, actual);
 		
@@ -83,12 +83,12 @@ public class alpineTests {
 			heli0.hypothesizeLocation();
 		}
 		Point expected = new Point(100,20);
-		Point actual = dog0.getHypotheses().get(dog0.getHypotheses().size() -1);
+		Point actual = new Point((int)dog0.getHypothesizedPath().getP2().getX(), (int)dog0.getHypothesizedPath().getP2().getY());
 		Assert.assertEquals(expected, actual);
-		actual = hike0.getHypotheses().get(hike0.getHypotheses().size() -1);
+		actual = new Point((int)hike0.getHypothesizedPath().getP2().getX(), (int)hike0.getHypothesizedPath().getP2().getY());
 		expected = new Point(0,0);
 		Assert.assertEquals(expected, actual);
-		actual = heli0.getHypotheses().get(hike0.getHypotheses().size() -1);
+		actual = new Point((int)heli0.getHypothesizedPath().getP2().getX(), (int)heli0.getHypothesizedPath().getP2().getY());
 		expected = new Point(325, 300);
 		Assert.assertEquals(expected, actual);
 	}
