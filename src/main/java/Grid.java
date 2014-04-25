@@ -22,24 +22,30 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 	private ArrayList<GridObject> objects;
 	private Dimension dimension;
 	private int cellPixelSize;
-
+	private GridObject focus;
 	private Image background;
-
+	
 	public interface Clickable {
-		public void notifyUser();
+		public void notifyUser(Point p);
 	}
-
-	public Grid() {
-		super();
+	
+	private void initialize() {
 		this.addMouseListener(this);
 		this.cells = new ArrayList<GridCell>();
 		this.objects = new ArrayList<GridObject>();
 		this.dimension = null;
 		this.background = null;
+		this.focus = null;
+	}
+	
+	public Grid() {
+		super();
+		this.initialize();
 	}
 
 	public Grid(int cellPixelSize, String imageURL) {
-		this();
+		super();
+		this.initialize();
 		this.cellPixelSize = cellPixelSize;
 		this.setBackgroundImage(imageURL);
 		this.setGridDimensions(this.background.getHeight(null) / cellPixelSize, this.background.getWidth(null) / cellPixelSize);
@@ -48,7 +54,8 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 	}
 
 	public Grid(int rows, int columns, int cellPixelSize) {
-		this();
+		super();
+		this.initialize();
 		this.setGridDimensions(rows, columns);
 		this.cellPixelSize = cellPixelSize;
 		this.setLocation(0, 0);
@@ -56,7 +63,8 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 	}
 
 	public Grid(int rows, int columns, String imageURL) {
-		this();
+		super();
+		this.initialize();
 		this.setGridDimensions(rows, columns);
 		this.setBackgroundImage(imageURL);
 		this.setLocation(0, 0);
@@ -126,7 +134,7 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 		return this.dimension;
 	}
 	// Graphics Customization and Specifications
-
+	
 	public void setBackgroundImage(String imageURL) {
 		this.background = new ImageIcon(this.getClass().getResource(imageURL)).getImage();
 
@@ -141,10 +149,10 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 
 	public void addGridObject(GridObject go) {
 		this.objects.add(go);
-		go.notifyUser();
+		go.notifyUser(go.getCenter());
 		this.repaint();
 	}
-
+	
 	//Inherited Methods and Implementations
 
 	@Override
@@ -161,41 +169,20 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 		}
 
 		for(GridObject go : this.getGridObjects()) {
-			g.drawImage(go.getScaledImage(), go.getBounds().x, go.getBounds().y, null);
-			g.drawRect(go.getBounds().x,go.getBounds().y, go.getBounds().width, go.getBounds().height);   //Draws a border around the object.
 			if(go instanceof SearchTeam) {
 				ArrayList<Line2D> path = ((SearchTeam) go).getPath();
 				Graphics2D g2 = (Graphics2D) g;
-				g2.setStroke(new BasicStroke(10));
+				g2.setStroke(new BasicStroke(((SearchTeam) go).getRadius()));
 				g2.setColor(((SearchTeam) go).getColor());
 				for(Line2D line : path)
 					g2.draw(line);
 			}
+			g.drawImage(go.getScaledImage(), go.getBounds().x, go.getBounds().y, null);
 		}
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-
-	}
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
 		if(SwingUtilities.isRightMouseButton(arg0)){
 			if(this.getClicked(arg0.getPoint()) instanceof SearchTeam) {
 				int reply = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this item?", "Confirmation Dialog", JOptionPane.YES_NO_OPTION);
@@ -222,15 +209,42 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 			}
 		}
 		else if(SwingUtilities.isLeftMouseButton(arg0)) {
-			this.getClicked(arg0.getPoint()).notifyUser();
+			this.getClicked(arg0.getPoint()).notifyUser(arg0.getPoint());
+			this.repaint();
+		}
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		if(SwingUtilities.isLeftMouseButton(arg0) && this.getClicked(arg0.getPoint()) instanceof GridObject) {
+			this.focus = (GridObject) this.getClicked(arg0.getPoint());
+		}
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		if(this.focus != null) {
+			if(this.focus.getCenter().x != arg0.getPoint().x || this.focus.getCenter().y != arg0.getPoint().y) {
+				this.focus.notifyUser(arg0.getPoint());
+			}
+			this.focus = null;
 			this.repaint();
 		}
 	}
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 }

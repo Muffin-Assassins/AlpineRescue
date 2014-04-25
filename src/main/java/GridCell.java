@@ -1,6 +1,7 @@
 package main.java;
 
 import java.awt.Color;
+import java.awt.Point;
 
 public class GridCell implements Grid.Clickable {
 	private Color color;
@@ -45,7 +46,7 @@ public class GridCell implements Grid.Clickable {
 	}
 
 	@Override
-	public void notifyUser() {
-		System.out.println(row + ", " + column);
+	public void notifyUser(Point p) {
+		
 	}
 }

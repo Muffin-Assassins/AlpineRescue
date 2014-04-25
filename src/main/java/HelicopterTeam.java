@@ -1,9 +1,6 @@
 package main.java;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Point;
-import java.util.ArrayList;
 
 public class HelicopterTeam extends SearchTeam {
 	

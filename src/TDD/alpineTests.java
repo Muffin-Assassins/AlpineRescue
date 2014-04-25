@@ -1,9 +1,6 @@
 package TDD;
 
-import java.awt.Color;
 import java.awt.Point;
-import java.util.ArrayList;
-
 import main.java.ControlWindow;
 import main.java.Direction;
 import main.java.DogTeam;
@@ -14,12 +11,9 @@ import main.java.Velocity;
 
 import org.junit.Assert;
 import org.junit.Before;
-//import org.junit.Before;
-//import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class alpineTests {
-	private ControlWindow testGUI;
 	private SearchTeam hike0 = new HikerTeam(new Point(0, 0)); //should we create constants for the radius and put it in the constructor
 	private SearchTeam dog0 = new DogTeam(new Point(100, 20)); // but not as a parameter?;
 	private SearchTeam heli0 = new HelicopterTeam(new Point(500, 300));
@@ -30,14 +24,14 @@ public class alpineTests {
 		heli0.setVelocity(new Velocity(35, Direction.WEST)); 
 		dog0.setVelocity(new Velocity(15, Direction.SOUTHEAST));//Even though these are currently only used in one test,
 		//keeping them in @Before in case more hypotheses tests come up that require it
-		hike0.manualUpdate(new Point(0, 0));
-		heli0.manualUpdate(new Point(500, 300));
-		dog0.manualUpdate(new Point(100, 20));
+		hike0.updateLocation(new Point(0, 0));
+		heli0.updateLocation(new Point(500, 300));
+		dog0.updateLocation(new Point(100, 20));
 	}
 	
 	@Test
 	public void seeGUI() {
-		testGUI = new ControlWindow(); //a lot of GUI tests consist of visual confirmation; this covers most of that
+		new ControlWindow(); //a lot of GUI tests consist of visual confirmation; this covers most of that
 	}
 	
 	@Test

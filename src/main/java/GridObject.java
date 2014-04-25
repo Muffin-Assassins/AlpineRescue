@@ -6,13 +6,19 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
-public class GridObject implements Grid.Clickable{
+public abstract class GridObject implements Grid.Clickable{
 	private Point center;
 	private int width;
 	private int height;
 	private BufferedImage bufferedImage;
-
+	
+	public GridObject() {
+		center = null;
+		bufferedImage = null;
+	}
+	
 	public GridObject(int x, int y, int width, int height, String imageURL) {
+		this();
 		Image image = new ImageIcon(this.getClass().getResource(imageURL)).getImage();
 	    this.bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
 	    bufferedImage.createGraphics().drawImage(image, 0, 0, null);
@@ -28,7 +34,10 @@ public class GridObject implements Grid.Clickable{
 	public Rectangle getBounds() {
 		return new Rectangle(this.center.x - this.width / 2, this.center.y - this.height / 2, this.width, this.height);
 	}
-
+	
+	public Point getCenter() {
+		return (Point) center.clone();
+	}
 	public Image getImage() {
 		return this.bufferedImage;
 	}
@@ -42,7 +51,7 @@ public class GridObject implements Grid.Clickable{
 	}
 	
 	@Override
-	public void notifyUser() {
-		System.out.println("You clicked on an object");
+	public void notifyUser(Point p) {
+		
 	}
 }

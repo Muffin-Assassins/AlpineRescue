@@ -2,8 +2,6 @@ package main.java;
 
 import java.awt.BorderLayout;
 import java.awt.HeadlessException;
-import java.awt.Point;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -16,18 +14,13 @@ public class ControlWindow extends JFrame {
 	private Grid grid;
 	
 	public static void main(String[] args){
-		ControlWindow cw = new ControlWindow();
+		new ControlWindow();
 	}
 	
 	public ControlWindow() throws HeadlessException {
 		super();
 		
-		JOptionPane.showMessageDialog(this,
-			    "To add a new Search Team right click on their starting Location.",
-			    "Begin Similulation",
-			    JOptionPane.PLAIN_MESSAGE);
-		
-		this.setTitle("Alpine Rescuess");
+		this.setTitle("Alpine Rescue");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setLayout(new BorderLayout());
@@ -36,6 +29,11 @@ public class ControlWindow extends JFrame {
 		
 		this.add(grid, BorderLayout.CENTER);
 		this.setSize(this.grid.getWidth() + ControlWindow.WINDOW_EDGE_THICKNESS, this.grid.getHeight() + ControlWindow.WINDOW_BORDER_THICKNESS);
+		
+		JOptionPane.showMessageDialog(this,
+			    "To add a new Search Team right click on their starting Location.\nTo move a Search Team to a new location, drag and drop its icon.",
+			    "Begin Similulation",
+			    JOptionPane.PLAIN_MESSAGE);
 	}
 
 }
