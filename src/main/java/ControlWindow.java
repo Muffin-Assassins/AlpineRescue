@@ -16,11 +16,17 @@ public class ControlWindow extends JFrame {
 	private Grid grid;
 	
 	public static void main(String[] args){
-		ControlWindow cw =new ControlWindow();
+		ControlWindow cw = new ControlWindow();
 	}
 	
 	public ControlWindow() throws HeadlessException {
 		super();
+		
+		JOptionPane.showMessageDialog(this,
+			    "To add a new Search Team right click on their starting Location.",
+			    "Begin Similulation",
+			    JOptionPane.PLAIN_MESSAGE);
+		
 		this.setTitle("Alpine Rescuess");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
@@ -29,10 +35,6 @@ public class ControlWindow extends JFrame {
 		this.grid = new Grid(20, RESOURCE_PATH + "Pike_Peak_Topo.png");
 		
 		this.add(grid, BorderLayout.CENTER);
-		JOptionPane.showMessageDialog(null,
-			    "To add a new Search Team right click on their starting Location.",
-			    "Begin Similulation",
-			    JOptionPane.PLAIN_MESSAGE);
 		this.setSize(this.grid.getWidth() + ControlWindow.WINDOW_EDGE_THICKNESS, this.grid.getHeight() + ControlWindow.WINDOW_BORDER_THICKNESS);
 	}
 
