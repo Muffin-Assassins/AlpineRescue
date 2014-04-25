@@ -21,11 +21,11 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 	private int cellPixelSize;
 
 	private Image background;
-	
+
 	public interface Clickable {
 		public void notifyUser();
 	}
-	
+
 	public Grid() {
 		super();
 		this.addMouseListener(this);
@@ -81,23 +81,23 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 		if(this.isValid(row, column)) return(this.cells.get(this.getIndex(row,  column)));
 		else return null;
 	}
-	
+
 	public GridCell getGridCell(Point p) {
 		return this.getGridCell((p.y / this.cellPixelSize) + 1, (p.x / this.cellPixelSize) + 1);
 	}
-	
+
 	public GridObject getGridObject(Point p) {
 		for(GridObject go : this.objects) {
 			if(go.contains(p)) return go;
 		}
 		return null;
 	}
-	
+
 	public Clickable getClicked(Point p) {
 		if(this.getGridObject(p) != null) return this.getGridObject(p);
 		else return this.getGridCell(p);
 	}
-	
+
 	public Dimension getGridDimension() {
 		return this.dimension;
 	}
@@ -105,7 +105,7 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 	public ArrayList<GridCell> getGridCells() {
 		return this.cells;
 	}
-	
+
 	private ArrayList<GridObject> getGridObjects() {
 		return this.objects;
 	}
@@ -135,13 +135,13 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 			else this.cellPixelSize = (int) (width / this.dimension.getWidth());
 		}
 	}
-	
+
 	public void addGridObject(GridObject go) {
 		this.objects.add(go);
 		go.notifyUser();
 		this.repaint();
 	}
-	
+
 	//Inherited Methods and Implementations
 
 	@Override
@@ -157,7 +157,7 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 			if(gpc.getBorders()[2]) g.drawLine((gpc.getColumn() - 1) * this.cellPixelSize, (gpc.getRow() - 1) * this.cellPixelSize, (gpc.getColumn() - 1) * this.cellPixelSize, gpc.getRow() * this.cellPixelSize);
 			if(gpc.getBorders()[3]) g.drawLine(gpc.getColumn() * this.cellPixelSize, (gpc.getRow() - 1) * this.cellPixelSize, gpc.getColumn() * this.cellPixelSize, gpc.getRow() * this.cellPixelSize);
 		}
-		
+
 		for(GridObject go : this.getGridObjects()) {
 			g.drawImage(go.getScaledImage(), go.getBounds().x, go.getBounds().y, null);
 			g.drawRect(go.getBounds().x,go.getBounds().y, go.getBounds().width, go.getBounds().height);   //Draws a border around the object.
@@ -166,7 +166,7 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		
+
 	}
 
 	@Override
@@ -187,20 +187,28 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		if(SwingUtilities.isRightMouseButton(arg0)){
-			Object[] objects = {"Dog Team", "Hiker Team", "Helicopter Team"};
-			String s = (String)JOptionPane.showInputDialog(this, "Please choose seach team type:", "New Search Team", JOptionPane.PLAIN_MESSAGE, null, objects, "Dog Team");
-			switch (s) {
-			case "Dog Team":
-				this.addGridObject(new DogTeam(arg0.getPoint()));
-				break;
-			case "Hiker Team":
-				this.addGridObject(new HikerTeam(arg0.getPoint()));
-				break;
-			case "Helicopter Team":
-				this.addGridObject(new HelicopterTeam(arg0.getPoint()));
-				break;
-			default:
-				break;
+			if(this.getClicked(arg0.getPoint()) instanceof GridObject) {
+				int reply = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this item?", "Confirmation Dialog", JOptionPane.YES_NO_OPTION);
+		        if (reply == JOptionPane.YES_OPTION) {
+		        	this.objects.remove(this.getClicked(arg0.getPoint()));
+		        	this.repaint();
+		        }
+			} else if(this.getClicked(arg0.getPoint()) instanceof GridCell) {
+				Object[] objects = {"Dog Team", "Hiker Team", "Helicopter Team"};
+				String s = (String)JOptionPane.showInputDialog(this, "Please choose seach team type:", "New Search Team", JOptionPane.PLAIN_MESSAGE, null, objects, "Dog Team");
+				switch (s) {
+				case "Dog Team":
+					this.addGridObject(new DogTeam(arg0.getPoint()));
+					break;
+				case "Hiker Team":
+					this.addGridObject(new HikerTeam(arg0.getPoint()));
+					break;
+				case "Helicopter Team":
+					this.addGridObject(new HelicopterTeam(arg0.getPoint()));
+					break;
+				default:
+					break;
+				}
 			}
 		}
 		else if(SwingUtilities.isLeftMouseButton(arg0)){
@@ -212,7 +220,7 @@ public class Grid extends JPanel implements MouseListener, Runnable {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 }
