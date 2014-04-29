@@ -13,7 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public abstract class SearchTeam extends SearchGridObject {
+public abstract class SearchTeam extends SearchGridObject { //everything on the grid is a gridObject including
+	//SearchTeam which therefore implements clickable
 	private int radius;
 	private long checkInTime;
 	private String name;
@@ -69,14 +70,14 @@ public abstract class SearchTeam extends SearchGridObject {
 	}
 	
 	public Color getColor() {
-		return new Color(0, 255, 0, 127);
+		return new Color(0, 255, 0, 127); //setting the opacity of things using alpha
 	}
 	
 	public Point getLocation() {
 		return this.lastKnownLocation;
 	}
 	
-	public Point getHypothesizedLocation() {
+	public Point getHypothesizedLocation() { //doing speed in pixels based on speed entry
 		double time = ((double)(System.currentTimeMillis() - this.checkInTime)) / 3600000.0;
 		int dx = (int)((this.velocity.getSpeed() * Math.sin(this.velocity.getDirection() * Math.PI / 180.0)) * this.topographicMap.getPixelsPerMile() * time);
 		int dy = (int)(this.velocity.getSpeed() * Math.cos(this.velocity.getDirection() * Math.PI / 180.0) * this.topographicMap.getPixelsPerMile() * time);
@@ -84,7 +85,7 @@ public abstract class SearchTeam extends SearchGridObject {
 		return new Point(this.lastKnownLocation.x + dx, this.lastKnownLocation.y - dy);
 	}
 	
-	public ArrayList<Line2D> getPath() {
+	public ArrayList<Line2D> getPath() { //draws everywhere you've been on the map (green)
 		ArrayList<Line2D> linePath = new ArrayList<Line2D>();
 		for(int i = 0; i < (this.path.size() - 1); i++) linePath.add(new Line2D.Double(this.path.get(i), this.path.get(i + 1)));
 		return linePath;
@@ -98,7 +99,8 @@ public abstract class SearchTeam extends SearchGridObject {
 	}
 	
 	@Override
-	public void notifyUser(Point p) {
+	public void notifyUser(Point p) { //gui pop up for editing direction and speed 
+		//whenever lastKnownLocation of the SearchTeam is changed
 		JPanel box = new JPanel(new GridLayout(2,2));
 		
 		JTextField directionDialog = new JTextField(Double.toString(this.velocity.getDirection()));
@@ -120,7 +122,7 @@ public abstract class SearchTeam extends SearchGridObject {
 	}
 	
 	@Override
-	public void notifyUser() {
+	public void notifyUser() { //inputing longitude and latitude coordinates
 		
 		JPanel box = new JPanel(new GridLayout(3, 2));
 		String[] latChoice = {"N", "S"};
@@ -135,7 +137,7 @@ public abstract class SearchTeam extends SearchGridObject {
 		JTextField[] longitudeValue = new JTextField[3];
 		
 		box.add(new JLabel("Geo-Coordinate"));
-		box.add(new JLabel("                  °            \'            \""));
+		box.add(new JLabel("                  ï¿½            \'            \""));
 		
 		latitudeInput.add(lat);
 		latitudeInput.add(latitudeValue[0] = new JTextField(3));
