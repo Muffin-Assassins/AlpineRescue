@@ -5,6 +5,6 @@ import java.awt.Point;
 public class HikerTeam extends SearchTeam {
 
 	public HikerTeam(Point startLocation, TopographicMap map) {
-		super(100, startLocation, map, "../resources/HikerIcon.png");
+		super(100, startLocation, map, "../resources/HikerIcon.png"); //create object with picture as icon
 	}
 }
