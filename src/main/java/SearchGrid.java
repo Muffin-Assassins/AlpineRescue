@@ -33,7 +33,7 @@ public class SearchGrid extends JPanel implements MouseListener, ActionListener 
 	private Timer timer;
 
 	public interface Clickable {
-		public abstract void notifyUser(Point p);
+		public abstract void notifyUser(Point p); //notifyUser gui when clicked
 		public abstract void notifyUser();
 	}
 
@@ -66,7 +66,7 @@ public class SearchGrid extends JPanel implements MouseListener, ActionListener 
 					this.cells.add(new SearchGridCell(r, c));
 				}
 			}
-		} else {
+		} else { //if impossible size, throw exception
 			this.cells = null;
 			this.dimension = null;
 			throw new RuntimeException("Invalid 2D Grid Dimension: [Rows: " + rows + ", Columns: " + columns + "]");
@@ -90,7 +90,7 @@ public class SearchGrid extends JPanel implements MouseListener, ActionListener 
 		return null;
 	}
 
-	public Clickable getClicked(Point p) {
+	public Clickable getClicked(Point p) { //what was clicked?
 		if(this.getGridObject(p) != null) return this.getGridObject(p);
 		else return this.getGridCell(p);
 	}
@@ -145,11 +145,12 @@ public class SearchGrid extends JPanel implements MouseListener, ActionListener 
 	//Inherited Methods and Implementations
 
 	@Override
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g) { //draw grid and everything on it
 		g.drawImage(this.background, 0, 0, this.dimension.width * this.cellPixelSize, this.dimension.height * this.cellPixelSize,  null);
 
 		for(SearchGridCell gpc : this.getGridCells()) {
 			g.setColor(gpc.getColor());
+			//drawing grid lines for every cell at specified size
 			if(gpc.getBorders()[0]) g.drawLine((gpc.getColumn() - 1) * this.cellPixelSize, (gpc.getRow() - 1) * this.cellPixelSize, gpc.getColumn() * this.cellPixelSize, (gpc.getRow() - 1) * this.cellPixelSize);
 			if(gpc.getBorders()[1]) g.drawLine((gpc.getColumn() - 1) * this.cellPixelSize, gpc.getRow() * this.cellPixelSize, gpc.getColumn() * this.cellPixelSize, gpc.getRow() * this.cellPixelSize);
 			if(gpc.getBorders()[2]) g.drawLine((gpc.getColumn() - 1) * this.cellPixelSize, (gpc.getRow() - 1) * this.cellPixelSize, (gpc.getColumn() - 1) * this.cellPixelSize, gpc.getRow() * this.cellPixelSize);
@@ -161,6 +162,7 @@ public class SearchGrid extends JPanel implements MouseListener, ActionListener 
 				SearchTeam st = ((SearchTeam) go);
 				ArrayList<Line2D> path = ((SearchTeam) go).getPath();
 				Graphics2D g2 = (Graphics2D) g;
+				//set conversion of miles, etc. to pixels for gui
 				int stroke = (int) (((double)st.getRadius() / 5280.0) * this.topographicMap.getPixelsPerMile());
 				g2.setStroke(new BasicStroke(stroke));
 				g.setColor(((SearchTeam) go).getColor());
@@ -169,7 +171,6 @@ public class SearchGrid extends JPanel implements MouseListener, ActionListener 
 				g2.setColor(new Color(200, 0, 0, 200));
 				g2.draw(new Line2D.Double(go.getCenter(), ((SearchTeam) go).getHypothesizedLocation()));
 				g.drawImage(go.getScaledImage(), go.getBounds().x, go.getBounds().y, null);
-				
 				g.setColor(new Color(255, 255, 255, 145));
 				g.fillRect(st.getLocation().x - 20, st.getLocation().y + 30, 40, 17);
 				g.setColor(Color.BLACK);
@@ -183,13 +184,13 @@ public class SearchGrid extends JPanel implements MouseListener, ActionListener 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		if(SwingUtilities.isRightMouseButton(arg0)){
-			if(this.getClicked(arg0.getPoint()) instanceof SearchTeam) {
+			if(this.getClicked(arg0.getPoint()) instanceof SearchTeam) { //if a searchTeam object is clicked, provide opportunity to delete
 				int reply = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this item?", "Confirmation Dialog", JOptionPane.YES_NO_OPTION);
 				if (reply == JOptionPane.YES_OPTION) {
 					this.getGridObjects().remove(this.getClicked(arg0.getPoint()));
 					this.repaint();
 				}
-			} else if(this.getClicked(arg0.getPoint()) instanceof SearchGridCell) {
+			} else if(this.getClicked(arg0.getPoint()) instanceof SearchGridCell) { //if right click, create team
 				Object[] objects = {"Dog Team", "Hiker Team", "Helicopter Team"};
 				String s = (String)JOptionPane.showInputDialog(this, "Please choose seach team type:", "New Search Team", JOptionPane.PLAIN_MESSAGE, null, objects, "Dog Team");
 				if(s != null) {
@@ -222,7 +223,7 @@ public class SearchGrid extends JPanel implements MouseListener, ActionListener 
 	}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
+	public void mousePressed(MouseEvent arg0) { //drag and drop implementation
 		if(SwingUtilities.isLeftMouseButton(arg0)) {
 			if(this.getClicked(arg0.getPoint()) instanceof SearchTeam) {
 				this.focus = (SearchTeam) this.getClicked(arg0.getPoint());
