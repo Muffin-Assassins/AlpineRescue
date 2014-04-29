@@ -13,7 +13,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class alpineTests {
+public class alpineTests { //these worked but then we changed the directions to a degree and a lot of other things so.... 
+	//we didn't worry too much about it because our logic was the same
 	private SearchTeam hike0 = new HikerTeam(new Point(0, 0)); //should we create constants for the radius and put it in the constructor
 	private SearchTeam dog0 = new DogTeam(new Point(100, 20)); // but not as a parameter?;
 	private SearchTeam heli0 = new HelicopterTeam(new Point(500, 300));

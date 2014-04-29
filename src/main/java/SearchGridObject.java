@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
-public abstract class SearchGridObject implements SearchGrid.Clickable {
+public abstract class SearchGridObject implements SearchGrid.Clickable { //anything and everything on our map is considered a SearchGridObject and is therefore clickable. yaaaay logic & design
 	private Point center;
 	private int width;
 	private int height;

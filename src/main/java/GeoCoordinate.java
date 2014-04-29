@@ -2,7 +2,8 @@ package main.java;
 
 import java.text.DecimalFormat;
 
-public class GeoCoordinate {
+public class GeoCoordinate { //implemented as 0 to 360 with 0 degrees as North instead of the standard 8 compass directions
+	//to allow more flexibility in terms of tracking team movement
 	private Latitude latitude;
 	private Longitude longitude;
 	
@@ -77,7 +78,7 @@ public class GeoCoordinate {
 			GeoCoordinate.Direction dir;
 			if(this.latitude >= 0) dir = GeoCoordinate.Direction.NORTH;
 			else dir = GeoCoordinate.Direction.NORTH;
-			return dms[0] + "° "+ dms[1] + "\' " + dms[2] + "\" " + dir.toString();
+			return dms[0] + "ï¿½ "+ dms[1] + "\' " + dms[2] + "\" " + dir.toString();
 		}
 		public void setlatitude(double latitude) {
 			if(latitude >= -90.0 && latitude <= 90.0) this.latitude = latitude;
@@ -98,7 +99,7 @@ public class GeoCoordinate {
 			GeoCoordinate.Direction dir;
 			if(this.longitude >= 0) dir = GeoCoordinate.Direction.EAST;
 			else dir = GeoCoordinate.Direction.WEST;
-			return dms[0] + "° "+ dms[1] + "\' " + dms[2] + "\" " + dir.toString(); 
+			return dms[0] + "ï¿½ "+ dms[1] + "\' " + dms[2] + "\" " + dir.toString(); 
 		}
 		public void setLongitude(double longitude) {
 			if(longitude >= -180.0 && longitude <= 180.0) this.longitude = longitude;
