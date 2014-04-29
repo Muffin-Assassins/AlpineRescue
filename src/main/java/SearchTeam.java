@@ -137,7 +137,7 @@ public abstract class SearchTeam extends SearchGridObject { //everything on the 
 		JTextField[] longitudeValue = new JTextField[3];
 		
 		box.add(new JLabel("Geo-Coordinate"));
-		box.add(new JLabel("                  ï¿½            \'            \""));
+		box.add(new JLabel("                  °            \'            \""));
 		
 		latitudeInput.add(lat);
 		latitudeInput.add(latitudeValue[0] = new JTextField(3));
