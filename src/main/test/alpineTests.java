@@ -1,4 +1,4 @@
-package TDD;
+package main.test;
 
 import java.awt.Point;
 import main.java.ControlWindow;
