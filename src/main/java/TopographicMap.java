@@ -30,7 +30,7 @@ public class TopographicMap {
 		public abstract GeoCoordinate getLocation(Point gc, TopographicMap map);
 	}
 	
-	public TopographicMap() {
+	public TopographicMap() { //constructor for large # of pixels per meter
 		super();
 		this.geoCoordinate = new GeoCoordinate(39.75751, -105.22240);
 		this.metersPerPixel = 16;
@@ -55,7 +55,7 @@ public class TopographicMap {
 		this.loadMapImage(this.geoCoordinate, this.metersPerPixel, this.size);
 	}
 	
-	public void loadMapImage(GeoCoordinate gc, int scale, String size) {
+	public void loadMapImage(GeoCoordinate gc, int scale, String size) { //map sizing
 		this.geoCoordinate = gc;
 		
 		String line = "";
@@ -64,8 +64,8 @@ public class TopographicMap {
 		if(!size.equals("s") && !size.equals("m") && !size.equals("l") && !size.equals("xl")) size = "m";
 		this.size = size;
 		try {
-			System.out.println(TopographicMap.getURL(gc, size, scale));
-			URL image = TopographicMap.getURL(gc, size, scale);
+			System.out.println(TopographicMap.getURL(gc, size, scale)); 
+			URL image = TopographicMap.getURL(gc, size, scale); //pulling maps from external website via URL
 			URLConnection imageConnection = image.openConnection();
 			BufferedReader br = new BufferedReader(new InputStreamReader(imageConnection.getInputStream()));
 
@@ -115,7 +115,7 @@ public class TopographicMap {
 		JTextField[] longitudeValue = new JTextField[3];
 		
 		box.add(new JLabel("Geo-Coordinate"));
-		box.add(new JLabel("                  °            \'            \""));
+		box.add(new JLabel("                  ï¿½            \'            \""));
 		
 		latitudeInput.add(lat);
 		latitudeInput.add(latitudeValue[0] = new JTextField("038"));
@@ -166,7 +166,7 @@ public class TopographicMap {
 		else this.topographicMap = null;
 	}
 	
-	private static URL getURL(GeoCoordinate gc, String size, int scale) {
+	private static URL getURL(GeoCoordinate gc, String size, int scale) { //kinda sketchily hardcording the URL, but give us a break here: time as a factor and all that jazz
 		URL url = null;
 		try {
 			url = new URL("http://www.topoquest.com/map.php?lat=" + gc.getLatitude().toString() + "&lon=" + gc.getLongitude().toString() + "&datum=nad27&zoom=" + scale + "&map=auto&coord=d&mode=zoomin&size=" + size);
