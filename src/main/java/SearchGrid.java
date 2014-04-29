@@ -171,8 +171,6 @@ public class SearchGrid extends JPanel implements MouseListener, ActionListener 
 				g2.setColor(new Color(200, 0, 0, 200));
 				g2.draw(new Line2D.Double(go.getCenter(), ((SearchTeam) go).getHypothesizedLocation()));
 				g.drawImage(go.getScaledImage(), go.getBounds().x, go.getBounds().y, null);
-				g.setColor(new Color(255, 255, 255, 145));
-				g.fillRect(st.getLocation().x - 20, st.getLocation().y + 30, 40, 17);
 				g.setColor(Color.BLACK);
 				g.drawString(st.getName(), st.getLocation().x - 20, st.getLocation().y - 25);
 				g.drawString(st.getGeoCoordinate().getLatitude().getDMS(), st.getLocation().x - 20, st.getLocation().y + 30);
