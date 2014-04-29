@@ -103,6 +103,11 @@ public class TopographicMap {
 		JComboBox<String> lat = new JComboBox<String>(latChoice);
 		JComboBox<String> lon = new JComboBox<String>(lonChoice);
 		
+		lat.setSelectedIndex(0);
+		lon.setSelectedIndex(0);
+		size.setSelectedIndex(2);
+		scale.setSelectedIndex(2);
+		
 		JPanel box = new JPanel(new GridLayout(5, 2));
 		JPanel latitudeInput = new JPanel(new GridLayout(1, 4));
 		JPanel longitudeInput = new JPanel(new GridLayout(1, 4));
@@ -113,14 +118,14 @@ public class TopographicMap {
 		box.add(new JLabel("                  °            \'            \""));
 		
 		latitudeInput.add(lat);
-		latitudeInput.add(latitudeValue[0] = new JTextField(3));
-		latitudeInput.add(latitudeValue[1] = new JTextField(2));
-		latitudeInput.add(latitudeValue[2] = new JTextField(2));
+		latitudeInput.add(latitudeValue[0] = new JTextField("038"));
+		latitudeInput.add(latitudeValue[1] = new JTextField("00"));
+		latitudeInput.add(latitudeValue[2] = new JTextField("49"));
 		
 		longitudeInput.add(lon);
-		longitudeInput.add(longitudeValue[0] = new JTextField(3));
-		longitudeInput.add(longitudeValue[1] = new JTextField(2));
-		longitudeInput.add(longitudeValue[2] = new JTextField(2));
+		longitudeInput.add(longitudeValue[0] = new JTextField("104"));
+		longitudeInput.add(longitudeValue[1] = new JTextField("58"));
+		longitudeInput.add(longitudeValue[2] = new JTextField("59"));
 		
 		box.add(new JLabel("Latitude:"));
 		box.add(latitudeInput);
