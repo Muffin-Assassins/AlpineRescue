@@ -1,0 +1,400 @@
+commit feaef0f707327884e515a38a0eb41dc361388d89
+Author: unknown <eroth@MZ026-45.adit.mines.edu>
+Date:   Tue Apr 29 10:21:26 2014 -0600
+
+    fixed the rectangle
+
+commit 1f7b037459fab90241b63c2c59421e9bca7b4abd
+Author: unknown <eroth@MZ026-45.adit.mines.edu>
+Date:   Tue Apr 29 10:11:16 2014 -0600
+
+    fixed degree symbol
+
+commit 53617ddac019b88be99b9eb75c9e818dfbd0b071
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 28 22:30:37 2014 -0600
+
+    we now have a very solid chunk of meaningful comments that really explains anything and everything that isn't inherently self-explainatory
+
+commit 21142561a4cfe36dcbefc7b76178c386af754ad4
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 28 22:24:28 2014 -0600
+
+    meaningful comments on TopographicMap
+
+commit 6b8f5620507941fa3b6e52280bbeaef6f805d26c
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 28 21:56:14 2014 -0600
+
+    meaningful comments added to all children of SearchTeam
+
+commit f4ed059d5d1eda92c1bb06fb8cf01f0eaabd7109
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 28 21:49:45 2014 -0600
+
+    meaningful comments added to SearchTeam
+
+commit 2451a3641fd94408954b6e754b3ddb9cb634b41a
+Merge: cc8750a 7beb9c0
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 28 21:31:58 2014 -0600
+
+    Merge branch 'master' of https://github.com/Muffin-Assassins/AlpineRescue
+
+commit cc8750ad5d5aafdc9be4dff2cf19c11059c8c82a
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 28 21:31:51 2014 -0600
+
+    meaningful commits added to searchGrid
+
+commit 7beb9c06a2d9491df5250417137d62b94c3c60f9
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Mon Apr 28 21:17:30 2014 -0600
+
+    Espen Roth and Garrett Sickles added default values to load screen at Pikes Peak
+
+commit b10d458408684ab23f524338998d8e95fe356d25
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Mon Apr 28 20:50:55 2014 -0600
+
+    Garrett Sickles and Espen Roth finalizing stuff
+
+commit c74a5f9369901d770b60452f79c35cd02fe6c0ec
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Mon Apr 28 20:50:28 2014 -0600
+
+    Espen Roth and Garrett Sickles updated Search Teams for GUI loading
+
+commit 6e5414b69f111c0a8b9371a450c3db0d0558e053
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Mon Apr 28 20:49:56 2014 -0600
+
+    Garrett Sickles and Espen Roth, Updated Search Grid persistence for topographic map
+
+commit f3eeadfc83fae71387ca8aaee064cd860de47b24
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Mon Apr 28 20:48:05 2014 -0600
+
+    Pair Programming with Espen Roth, Added GeoLocation
+
+commit b5a7a51bcdac778faf18ba65e1593606e0e74359
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Thu Apr 24 23:02:24 2014 -0600
+
+    Added drag and drop functionality, still working on time
+
+commit 93de2eb67569c9008ab07f7bd5ac809066b63b6f
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Thu Apr 24 21:04:34 2014 -0600
+
+    Implementing line drawing for Search paths
+
+commit 57412b766f6167e2115d0b2174904709f45e7fb0
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Thu Apr 24 19:58:46 2014 -0600
+
+    Updated UI for minor glitches
+
+commit 2b35dcc76df8e1234ea300a53aec8a1ba2aa7197
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Thu Apr 24 19:44:53 2014 -0600
+
+    Grid is now invisible to the user
+
+commit f85ab667aca957aa0fa373ee33387feb46604a2f
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Thu Apr 24 19:39:27 2014 -0600
+
+    Updated Control Window for order of opening
+
+commit 9fa47cc546b5918d8c70224de0f5e6178cd0bd4f
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Thu Apr 24 18:02:06 2014 -0600
+
+    added some simple fixes to changing velocity
+
+commit f27d62d11e43cd3dc57199a85526e99e7174a898
+Merge: 571db85 291bd2a
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Thu Apr 24 17:59:00 2014 -0600
+
+    Johanna and I figured it out. The objects now move. Yes they move.
+    
+    Merge branch 'master' of https://github.com/Muffin-Assassins/AlpineRescue
+
+commit 571db8566587cde83109d105a54cebb6e1a5ef7e
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Thu Apr 24 17:58:38 2014 -0600
+
+    Johanna and I figure dit out. The object now moves. Yes it moves.
+
+commit 291bd2a550b92559c880c9509b9271eceb6adca4
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Thu Apr 24 17:49:20 2014 -0600
+
+    realized improvements on TDD, diagonalHypothesis should start working when manual update is officially implemented
+
+commit c3a401199806c25f1b96a616e380c523c80bd2df
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Thu Apr 24 17:38:14 2014 -0600
+
+    failing test written for hypotheses occuring on a diagonal direction(SW, NW, SE, NE)
+
+commit e7d2321385a39b7ab746b66dfcfac578fa25d98b
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Thu Apr 24 17:19:40 2014 -0600
+
+    wrote fail test for offTheGrid() in order to insure that if the program starts to hypothesize off the map, hypothesizeLocation will stop being called and wait for the next manual update before attempting another hypothesis
+
+commit e05822a84404be7fa1e03d1b9de2a96491715326
+Merge: 5fa6ae9 27241ae
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Wed Apr 23 21:17:28 2014 -0600
+
+    merge complete
+
+commit 5fa6ae99177184f9ac8280c7f35d756cb7adb853
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Wed Apr 23 21:16:33 2014 -0600
+
+    useless pull commit
+
+commit 27241aecec65423465e2ca94f4338146cacb85e7
+Author: EspenRoth <eroth@mymail.mines.edu>
+Date:   Wed Apr 23 21:13:03 2014 -0600
+
+    to fix pawel's deal
+
+commit 447c81ce256dc9da45287e58c430103fce426357
+Merge: 57b7999 4bc4be2
+Author: EspenRoth <eroth@mymail.mines.edu>
+Date:   Wed Apr 23 21:09:27 2014 -0600
+
+    Merge branch 'master' of https://github.com/Muffin-Assassins/AlpineRescue
+
+commit 4bc4be229669b987674cd3eac76c95c3f6fb5223
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Wed Apr 23 21:09:00 2014 -0600
+
+    Added userability. Worked with johanna.
+
+commit 57b7999ff048a169597739dc17531e2d96d28bce
+Merge: 74d9b92 fa251d1
+Author: EspenRoth <eroth@mymail.mines.edu>
+Date:   Wed Apr 23 21:06:16 2014 -0600
+
+    Merge branch 'master' of https://github.com/Muffin-Assassins/AlpineRescue
+
+commit 74d9b9248253956fa50ce485a25919d5ed786ccf
+Author: EspenRoth <eroth@mymail.mines.edu>
+Date:   Wed Apr 23 21:05:34 2014 -0600
+
+    right click to add teams to the board. yay.
+
+commit fa251d18b15302a2e1328d8b7ca5fe207a314f3b
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Wed Apr 23 21:04:51 2014 -0600
+
+    Johanna and me Teamworking. We implemented a pop up box for editing velocity
+
+commit 9f22930fc7733e0716fc19378fe694b781416de8
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Wed Apr 23 20:33:02 2014 -0600
+
+    Added JOptionPane message dialog
+
+commit 0f76869cd743efa8b0821b79a9dd3292bd610c84
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Wed Apr 23 20:13:23 2014 -0600
+
+    EVERYTHING IS NEW
+
+commit 2aae3f022d32bcec75cf9f46c393dfab8f234806
+Merge: 46d603f 890bd15
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Wed Apr 23 20:12:31 2014 -0600
+
+    IDC
+    Merge branch 'master' of https://github.com/Muffin-Assassins/AlpineRescue
+
+commit 46d603fcc7cc8863bcb23ce5e266d9f774c9caa9
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Wed Apr 23 20:12:24 2014 -0600
+
+    Played with the constructor
+
+commit 890bd1579fe377d4ec6c9e2e81193c5efdfddeb9
+Merge: 8fb509d d46cd1c
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Wed Apr 23 20:11:00 2014 -0600
+
+    tests now updated to new constructors
+
+commit 8fb509db3f360b165f77d47e632fde1572f3d8d6
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Wed Apr 23 20:08:13 2014 -0600
+
+    literally just committing comments, but necessary for merge
+
+commit d46cd1c42e210a637e8e510179b801e29a18b843
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Wed Apr 23 20:05:37 2014 -0600
+
+    Dumb force commit by git
+
+commit b4ffeda58002e328bc1d606a4ff4a199a487e00f
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Wed Apr 23 20:05:30 2014 -0600
+
+    There wont be merge conflicts fool. Also redid the constructors of the SearchTeam
+
+commit d9183c8088f7d58394e423d4e71295cf92ebac59
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Wed Apr 23 19:50:38 2014 -0600
+
+    All hypotheses are correct and passing
+
+commit e3e137413c9acc607897ac51d9b6e46169e4544c
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Wed Apr 23 19:42:29 2014 -0600
+
+    Added visuals to easier understand classes
+
+commit be34126a50b5178c9b14a1803684a42d0a4d13d8
+Merge: 56c92bd 3672711
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Wed Apr 23 19:13:15 2014 -0600
+
+    minimal merge conflicts resolved
+
+commit 56c92bd8348e52b54e3af4090826c2480ce7a2cc
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Wed Apr 23 19:10:40 2014 -0600
+
+    dogTeam hypothesizeLocation test now passing
+
+commit 36727119d3388c9f6172f876bdd37bfde4ccd6ed
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Wed Apr 23 19:08:55 2014 -0600
+
+    Refactored code to better reflect OO design and the LSP principle
+
+commit 2d489e4dffb26a7ae09b387b5048571586b25b99
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Wed Apr 23 19:08:04 2014 -0600
+
+    test now failing (instead of errors) for hypothesizeLocation()
+
+commit ddc22adcfb7c3987faae8119f175628f6b40c366
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Tue Apr 22 10:45:46 2014 -0600
+
+    Added TDD file (I believe we'll only have one). Just pushing now so we're all messing with the same stuff/ battery is about to die so I'm not working on it more
+
+commit a3c3c0a72955c5f4effe975ed7ae087c1c22f986
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Tue Apr 22 10:38:35 2014 -0600
+
+    Added our planing document for implementing TDD that should have happened for partI and what will happen for partII
+
+commit 8ada8f6f9c09e152724aeb4f4e5a6b51abbda2c8
+Author: Pawel Maj <pmaj@mymail.mines.edu>
+Date:   Thu Apr 17 20:05:36 2014 -0600
+
+    Pair Programming with Espen and Johanna. We implememnted the logic for Search Teams. THis icluded all the methods and hypothesizeLocation()
+
+commit 331014b5f09c44ec97c67aea5bd2e603d6ce6a25
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Thu Apr 17 11:59:52 2014 -0600
+
+    Got the layered pane working to overlay SearchGrid onto the topo map
+
+commit 48a8933e717fc9c0a057b4be25f910751958f456
+Author: Garrett Sickles <gsickles@mines.edu>
+Date:   Thu Apr 17 10:54:01 2014 -0600
+
+    Work from in class
+
+commit 3ad3cfe7ab4c9ac858e0dbbb3827e86df8f76d94
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Wed Apr 16 21:27:56 2014 -0600
+
+    Updated name again
+
+commit 5b725359297d63891fddbfa3679585e2b0bc151f
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Wed Apr 16 21:25:17 2014 -0600
+
+    Renamed for another inheritance extension
+
+commit ebe50320cfd3dc51ee2a9d172777a06e08ee0172
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Wed Apr 16 21:22:52 2014 -0600
+
+    Updated functionality to draw a topographic map as the background
+
+commit bbf712667f5ebc868bd2254ac033912e64833aed
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Wed Apr 16 18:39:35 2014 -0600
+
+    Added sectors and searchTeams to GridMap. GridMap also is a JPanel now.
+
+commit bc97945eb3072dc0661b99ef217e8daeb5e00662
+Author: Garrett Sickles <gsickles@mines.edu>
+Date:   Tue Apr 15 10:38:50 2014 -0600
+
+    Initial commit including directory layout and stup files
+
+commit 9713fb82babfc06ce20a4a4920ed5084c236f06d
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Mon Apr 14 17:29:47 2014 -0600
+
+    Updated file structure for design submission
+
+commit a0bc6ba0c14ee4d2633f927329565ad224fb8a3d
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 14 17:24:09 2014 -0600
+
+    saving planning doc in a pdf format for submission
+
+commit 1b9ce70e9b0e48d457644abbc6d0c856d0f1b6ba
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 14 17:15:33 2014 -0600
+
+    adding UML in png form for Garrett
+
+commit 39dde6b369a924b3f1d0cf974763707070ad1bc1
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 14 17:08:19 2014 -0600
+
+    added some methods, changed a few things to private, and changed the direction of the interface arrows because they were for sure backwards.
+
+commit dc0a05792f144cd8ee53f29dd88ba9e9d7701023
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 14 16:54:19 2014 -0600
+
+    UML updates for increased design prep
+
+commit 796c44f221549a81b5675524646e2483e7d9544d
+Author: Johanna Smith <jojsmith@mymail.mines.edu>
+Date:   Mon Apr 14 11:20:05 2014 -0600
+
+    adding planning writeup
+
+commit d2a2dbf83263a1b3ab0bdc99253c4727a2cf5bd5
+Author: Garrett Sickles <gsickles@mines.edu>
+Date:   Thu Apr 10 10:49:53 2014 -0600
+
+    Updated UML diagram
+
+commit 50a0a752316583d54ea48eda5d76824f39f44379
+Author: Garrett Sickles <gsickles@mines.edu>
+Date:   Tue Apr 8 10:48:38 2014 -0600
+
+    Added UML diagram in *.dia format
+
+commit 8bf9a398f89b3f66e17bdaa0ec14c8a2981824ec
+Author: Garrett Frank Sickles <garrettsickles@gmail.com>
+Date:   Tue Apr 8 09:44:19 2014 -0700
+
+    Initial commit
